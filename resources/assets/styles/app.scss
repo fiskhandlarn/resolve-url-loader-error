@@ -1,0 +1,14 @@
+@charset 'UTF-8';
+
+body {
+    // test resolve-url-loader
+
+    // Fail with "Error: resolve-url-loader: CSS error predicate must return an absolute path or the result of calling next()"
+    background: url('../images/favicons/favicon.svg');
+
+    // Fail with "ModuleNotFoundError: Module not found: Error: Can't resolve '../../../node_modules/resource/assets/images/favicons/favicon.svg'"
+    background: url('/resource/assets/images/favicons/favicon.svg');
+
+    // Pass
+    background: url('/../resources/assets/images/favicons/favicon.svg');
+}
